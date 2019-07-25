@@ -29,7 +29,6 @@ namespace April.Custom.CustomForms
         public CustomDataGridView()
         {
             InitializeComponent();
-
             try
             {                                                                   //У каждого пользователя сохранены свои настройки:
                 string sGuid = File.ReadAllText("./guid.txt");                  // user1: 132be0b9-a6b4-499f-a962-0517d685d105

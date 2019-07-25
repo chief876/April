@@ -9,13 +9,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static April.Form1;
 
 namespace April
 {
     public partial class Form1 : Form
     {
+        public class TextAttribute : Attribute
+        {
+            public string Name { get; set; }
+
+            public TextAttribute()
+            { }
+            public TextAttribute(string name)
+            {
+                Name = name;
+            }
+        }
+        [Text]
+        public enum NpgsqlType
+        {
+            [Text("anyarray")]
+            Array = -2147483648,
+            Unknown = 0,
+            [Text("int8")]
+            Bigint = 1,
+            [Text("bool")]
+            Boolean = 2,
+            [Text("box")]
+            Box = 3,
+            [Text("bytea")]
+            Bytea = 4,
+            [Text("circle")]
+            Circle = 5
+        }
+
         string connect = "Server=127.0.0.1; Port=5433; User Id=postgres; Password=115507; Database=db_april";
-        string selectQuery = "SELECT * FROM public.pharmacy_warehouse where \"Discount_Price\" = @p1";
         string selectQuery1 = "SELECT * FROM public.pharmacy_warehouse where \"Manufacturer\" like @p1 and \"Name\" like @p2";
         string selectQuery2 = "SELECT * FROM public.pharmacy_warehouse";
         string updateQuery = "UPDATE pharmacy_warehouse SET \"Discount_Price\" = @p1 where \"Name\" = @p2";
@@ -23,7 +52,13 @@ namespace April
         public Form1()
         {
             InitializeComponent();
+            //Task_10
+            Console.WriteLine(NpgsqlType.Array.ToText());
+            Console.WriteLine(NpgsqlType.Bigint.ToText());
+            Console.WriteLine(NpgsqlType.Unknown.ToText());
+            Console.WriteLine(NpgsqlType.Circle.ToText());
 
+            //Task_1
             //insert("Mezim", 140, 215, "Menarini");
             select();
         }
@@ -77,6 +112,25 @@ namespace April
         private void button1_Click(object sender, EventArgs e)
         {
             deriveParametersVarious(tbName.Text);
+        }
+    }
+
+    public static class EnumExtansion
+    {
+        public static string ToText(this NpgsqlType format)
+        {
+            object[] attribs = typeof(NpgsqlType)
+                .GetField(format.ToString())
+                .GetCustomAttributes(typeof(TextAttribute), false);
+
+            if (attribs != null && attribs.Length > 0)
+            {
+                return ((TextAttribute)attribs[attribs.Length - 1]).Name;
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

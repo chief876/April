@@ -30,15 +30,15 @@
         {
             this.btnSwitchVisibleColumns = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lbName = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.lbPrice1 = new System.Windows.Forms.Label();
-            this.tbPrice1 = new System.Windows.Forms.TextBox();
-            this.lbPrice2 = new System.Windows.Forms.Label();
-            this.tbPrice2 = new System.Windows.Forms.TextBox();
             this.lbMaker = new System.Windows.Forms.Label();
-            this.tbMaker = new System.Windows.Forms.TextBox();
+            this.lbPrice2 = new System.Windows.Forms.Label();
+            this.lbPrice1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
+            this.ctbMaker = new April.Custom.CustomForms.CustomTextBox();
+            this.ctbPrice2 = new April.Custom.CustomForms.CustomTextBox();
+            this.ctbPrice1 = new April.Custom.CustomForms.CustomTextBox();
+            this.ctbName = new April.Custom.CustomForms.CustomTextBox();
             this.customDataGridView1 = new April.Custom.CustomForms.CustomDataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).BeginInit();
@@ -46,25 +46,26 @@
             // 
             // btnSwitchVisibleColumns
             // 
-            this.btnSwitchVisibleColumns.Location = new System.Drawing.Point(446, 104);
+            this.btnSwitchVisibleColumns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSwitchVisibleColumns.Location = new System.Drawing.Point(389, 104);
             this.btnSwitchVisibleColumns.Name = "btnSwitchVisibleColumns";
-            this.btnSwitchVisibleColumns.Size = new System.Drawing.Size(123, 23);
+            this.btnSwitchVisibleColumns.Size = new System.Drawing.Size(180, 23);
             this.btnSwitchVisibleColumns.TabIndex = 1;
-            this.btnSwitchVisibleColumns.Text = "Switch visible columns";
+            this.btnSwitchVisibleColumns.Text = "Переключить видимые столбцы";
             this.btnSwitchVisibleColumns.UseVisualStyleBackColor = true;
             this.btnSwitchVisibleColumns.Click += new System.EventHandler(this.btnSwitchVisibleColumns_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ctbMaker);
             this.groupBox1.Controls.Add(this.lbMaker);
-            this.groupBox1.Controls.Add(this.tbMaker);
+            this.groupBox1.Controls.Add(this.ctbPrice2);
             this.groupBox1.Controls.Add(this.lbPrice2);
-            this.groupBox1.Controls.Add(this.tbPrice2);
+            this.groupBox1.Controls.Add(this.ctbPrice1);
             this.groupBox1.Controls.Add(this.lbPrice1);
-            this.groupBox1.Controls.Add(this.tbPrice1);
+            this.groupBox1.Controls.Add(this.ctbName);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.lbName);
-            this.groupBox1.Controls.Add(this.tbName);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(272, 125);
@@ -72,22 +73,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавить данные в таблицу:";
             // 
-            // tbName
+            // lbMaker
             // 
-            this.tbName.Location = new System.Drawing.Point(98, 19);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(87, 20);
-            this.tbName.TabIndex = 0;
-            this.tbName.MouseHover += new System.EventHandler(this.textBox1_MouseHover);
+            this.lbMaker.AutoSize = true;
+            this.lbMaker.Location = new System.Drawing.Point(6, 100);
+            this.lbMaker.Name = "lbMaker";
+            this.lbMaker.Size = new System.Drawing.Size(86, 13);
+            this.lbMaker.TabIndex = 11;
+            this.lbMaker.Text = "Производитель";
             // 
-            // lbName
+            // lbPrice2
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(6, 22);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(57, 13);
-            this.lbName.TabIndex = 4;
-            this.lbName.Text = "Название";
+            this.lbPrice2.AutoSize = true;
+            this.lbPrice2.Location = new System.Drawing.Point(6, 74);
+            this.lbPrice2.Name = "lbPrice2";
+            this.lbPrice2.Size = new System.Drawing.Size(42, 13);
+            this.lbPrice2.TabIndex = 9;
+            this.lbPrice2.Text = "Цена 2";
+            // 
+            // lbPrice1
+            // 
+            this.lbPrice1.AutoSize = true;
+            this.lbPrice1.Location = new System.Drawing.Point(6, 48);
+            this.lbPrice1.Name = "lbPrice1";
+            this.lbPrice1.Size = new System.Drawing.Size(42, 13);
+            this.lbPrice1.TabIndex = 7;
+            this.lbPrice1.Text = "Цена 1";
             // 
             // btnAdd
             // 
@@ -100,54 +111,49 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // lbPrice1
+            // lbName
             // 
-            this.lbPrice1.AutoSize = true;
-            this.lbPrice1.Location = new System.Drawing.Point(6, 48);
-            this.lbPrice1.Name = "lbPrice1";
-            this.lbPrice1.Size = new System.Drawing.Size(42, 13);
-            this.lbPrice1.TabIndex = 7;
-            this.lbPrice1.Text = "Цена 1";
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(6, 22);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(83, 13);
+            this.lbName.TabIndex = 4;
+            this.lbName.Text = "Наименование";
             // 
-            // tbPrice1
+            // ctbMaker
             // 
-            this.tbPrice1.Location = new System.Drawing.Point(98, 45);
-            this.tbPrice1.Name = "tbPrice1";
-            this.tbPrice1.Size = new System.Drawing.Size(87, 20);
-            this.tbPrice1.TabIndex = 6;
-            this.tbPrice1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            this.ctbMaker.EmptyDataCheck = true;
+            this.ctbMaker.Location = new System.Drawing.Point(92, 97);
+            this.ctbMaker.Name = "ctbMaker";
+            this.ctbMaker.Size = new System.Drawing.Size(91, 20);
+            this.ctbMaker.TabIndex = 7;
             // 
-            // lbPrice2
+            // ctbPrice2
             // 
-            this.lbPrice2.AutoSize = true;
-            this.lbPrice2.Location = new System.Drawing.Point(6, 74);
-            this.lbPrice2.Name = "lbPrice2";
-            this.lbPrice2.Size = new System.Drawing.Size(42, 13);
-            this.lbPrice2.TabIndex = 9;
-            this.lbPrice2.Text = "Цена 2";
+            this.ctbPrice2.EmptyDataCheck = true;
+            this.ctbPrice2.Location = new System.Drawing.Point(92, 71);
+            this.ctbPrice2.Name = "ctbPrice2";
+            this.ctbPrice2.Size = new System.Drawing.Size(91, 20);
+            this.ctbPrice2.TabIndex = 6;
+            this.ctbPrice2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctbPrice2_MouseClick);
             // 
-            // tbPrice2
+            // ctbPrice1
             // 
-            this.tbPrice2.Location = new System.Drawing.Point(98, 71);
-            this.tbPrice2.Name = "tbPrice2";
-            this.tbPrice2.Size = new System.Drawing.Size(87, 20);
-            this.tbPrice2.TabIndex = 8;
+            this.ctbPrice1.EmptyDataCheck = true;
+            this.ctbPrice1.Location = new System.Drawing.Point(92, 45);
+            this.ctbPrice1.Name = "ctbPrice1";
+            this.ctbPrice1.Size = new System.Drawing.Size(91, 20);
+            this.ctbPrice1.TabIndex = 5;
+            this.ctbPrice1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctbPrice1_MouseClick);
             // 
-            // lbMaker
+            // ctbName
             // 
-            this.lbMaker.AutoSize = true;
-            this.lbMaker.Location = new System.Drawing.Point(6, 100);
-            this.lbMaker.Name = "lbMaker";
-            this.lbMaker.Size = new System.Drawing.Size(86, 13);
-            this.lbMaker.TabIndex = 11;
-            this.lbMaker.Text = "Производитель";
-            // 
-            // tbMaker
-            // 
-            this.tbMaker.Location = new System.Drawing.Point(98, 97);
-            this.tbMaker.Name = "tbMaker";
-            this.tbMaker.Size = new System.Drawing.Size(87, 20);
-            this.tbMaker.TabIndex = 10;
+            this.ctbName.EmptyDataCheck = true;
+            this.ctbName.Location = new System.Drawing.Point(92, 19);
+            this.ctbName.Name = "ctbName";
+            this.ctbName.Size = new System.Drawing.Size(91, 20);
+            this.ctbName.TabIndex = 4;
+            this.ctbName.MouseHover += new System.EventHandler(this.ctbName_MouseHover);
             // 
             // customDataGridView1
             // 
@@ -162,6 +168,7 @@
             this.customDataGridView1.Size = new System.Drawing.Size(557, 245);
             this.customDataGridView1.TabIndex = 2;
             this.customDataGridView1.VirtualMode = true;
+            this.customDataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customDataGridView1_ColumnHeaderMouseDoubleClick);
             // 
             // Form1
             // 
@@ -187,14 +194,14 @@
         private CustomForms.CustomDataGridView customDataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbMaker;
-        private System.Windows.Forms.TextBox tbMaker;
         private System.Windows.Forms.Label lbPrice2;
-        private System.Windows.Forms.TextBox tbPrice2;
         private System.Windows.Forms.Label lbPrice1;
-        private System.Windows.Forms.TextBox tbPrice1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.TextBox tbName;
+        private CustomForms.CustomTextBox ctbMaker;
+        private CustomForms.CustomTextBox ctbPrice2;
+        private CustomForms.CustomTextBox ctbPrice1;
+        private CustomForms.CustomTextBox ctbName;
     }
 }
 

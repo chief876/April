@@ -10,10 +10,10 @@ namespace April.Custom.SQLite
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext() : base(
+        public DatabaseContext(string db_path) : base(
             new SQLiteConnection()
             {
-                ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = @".\Resource\apteka_sklad.db", ForeignKeys = true }.ConnectionString
+                ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = db_path, ForeignKeys = true }.ConnectionString
             }, true)
         {
         }

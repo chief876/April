@@ -19,6 +19,11 @@ namespace April.ConvertJsonToDataTable
             InitializeComponent();
         }
         
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Task_8
+            richTextBox1.Text = "[\n{\"id\":\"10\",\"name\":\"User\",\"add\":false,\"edit\":true,\"authorize\":true,\"view\":true}, {\"id\":\"11\",\"name\":\"Group\",\"add\":true,\"edit\":false,\"authorize\":false,\"view\":true}, {\"id\":\"12\",\"name\":\"Permission\",\"add\":true,\"edit\":true,\"authorize\":true,\"view\":true}\n]";
+        }
         private void btnJSON_to_DataTable_Click(object sender, EventArgs e)
         {
             dt = Convert.JsonToDataTable(richTextBox1.Text);
@@ -33,9 +38,5 @@ namespace April.ConvertJsonToDataTable
             richTextBox1.Text = JSONresult;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            richTextBox1.Text = "[\n{\"id\":\"10\",\"name\":\"User\",\"add\":false,\"edit\":true,\"authorize\":true,\"view\":true}, {\"id\":\"11\",\"name\":\"Group\",\"add\":true,\"edit\":false,\"authorize\":false,\"view\":true}, {\"id\":\"12\",\"name\":\"Permission\",\"add\":true,\"edit\":true,\"authorize\":true,\"view\":true}\n]";
-        }
     }
 }

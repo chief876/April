@@ -157,18 +157,15 @@ namespace April
                     if(et != null)
                     {
                         et.Dispose();
-                        et = null;
                     }
                     if(Cmd != null)
                     {
                         Cmd.Dispose();
-                        Cmd = null;
                     }
                     if(Conn != null)
                     {
                         CloseConnection();
                         Conn.Dispose();
-                        Conn = null;
                     }
                 }
                 // освобождаем неуправляемые объекты
